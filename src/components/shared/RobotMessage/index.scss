@@ -1,0 +1,79 @@
+@mixin top {
+  top: -90px;
+}
+
+@mixin bottom {
+  bottom: -90px;
+}
+
+.robot {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  position: relative;
+  align-self: center;
+
+  &__message {
+    width: 200px;
+
+    &-text {
+      width: 70%;
+      top: 40px;
+      left: 30px;
+      position: absolute;
+      & li {
+        text-align: start;
+      }
+    }
+  }
+
+  &__message-container {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+
+  }
+
+  & .container-top {
+    &-left {
+      @include top;
+      left: 0;
+    }
+    &-right {
+      @include top;
+      right: 0;
+    }
+  }
+
+  & .container-bottom {
+    &-left {
+      @include bottom;
+      left: 0;
+    }
+    &-right {
+      @include bottom;
+      right: 0;
+    }
+  }
+
+  & .top {
+    &-left {
+      transform: scaleX(-1);
+    }
+  }
+
+  & .bottom {
+    &-left {
+      margin-top: -20px;
+      transform: scaleY(-1) scaleX(-1);
+    }
+    &-right {
+      margin-top: -20px;
+      transform: scaleY(-1);
+    }
+  }
+
+  &.scale-small {
+    transform: scale(0.7);
+  }
+}

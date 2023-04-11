@@ -1,0 +1,31 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 40px 160px;
+}
+
+.buton-group {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
+
+  &__button {
+    width: 50px;
+    height: 40px;
+    border: none;
+    background-color: #FFDFD3;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+      background-color: #F5D6CB
+    }
+    &:active {
+      background-color: #DEC2B8
+    }
+  }
+}
+
+
