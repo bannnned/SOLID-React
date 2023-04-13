@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './styles.scss';
-import { S, O, L, I, D } from './components';
+import { S, O, L, I, D } from '@/components';
 
 export default function App() {
   const principlesComponents = {
