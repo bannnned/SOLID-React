@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { RobotMessage } from "./shared/RobotMessage";
-import "prismjs/themes/prism-tomorrow.css";
-import Prism from "prismjs";
-import { badIPrinciple, goodIPrinciple } from "./utils/codeExamples";
+import React, { useEffect } from 'react';
+import { RobotMessage } from './shared/RobotMessage';
+import 'prismjs/themes/prism-tomorrow.css';
+import Prism from 'prismjs';
+import { badIPrinciple, goodIPrinciple } from './utils/codeExamples';
 
 const I = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   return (
-    <div className="I">
-      {" "}
+    <div className='I'>
+      {' '}
       <h1>Принцип разделения интерфейса</h1>
       <h1>Interface Segregation Principle - ISP</h1>
       <p>
@@ -18,36 +18,36 @@ const I = () => {
         Это означает, что компоненты должны иметь только те методы, которые им
         необходимы для выполнения своих функций.
       </p>
-      <div className="images">
+      <div className='images'>
         <RobotMessage
-          positionX="top"
-          positionY="left"
-          text={"Я могу готовить еду, мыть полы, вскрывать замки, но медленно"}
+          positionX='top'
+          positionY='left'
+          text={'Я могу готовить еду, мыть полы, вскрывать замки, но медленно'}
         />
-        <div className="images__group3x1 padding-top-50">
+        <div className='images__group3x1 padding-top-50'>
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            text={"Я могу готовить еду и делаю это быстро"}
-            scale="small"
+            positionX='top'
+            positionY='left'
+            text={'Я могу готовить еду и делаю это быстро'}
+            scale='small'
           />
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            text={"Я могу мыть полы и делаю это быстро"}
-            scale="small"
+            positionX='top'
+            positionY='left'
+            text={'Я могу мыть полы и делаю это быстро'}
+            scale='small'
           />
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            text={"Я могу вскрывать замки и делаю это быстро"}
-            scale="small"
+            positionX='top'
+            positionY='left'
+            text={'Я могу вскрывать замки и делаю это быстро'}
+            scale='small'
           />
         </div>
-        <div className="dot dot-red"></div>
-        <div className="dot dot-green"></div>
+        <div className='dot dot-red'></div>
+        <div className='dot dot-green'></div>
       </div>
-      <div className="examples">
+      <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
         <pre>
           <code className={`language-javascript`}>{badIPrinciple}</code>

@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { RobotMessage } from "./shared/RobotMessage";
-import "prismjs/themes/prism-tomorrow.css";
-import Prism from "prismjs";
-import { badSPrinciple, goodSPrinciple } from "./utils/codeExamples";
+import React, { useEffect, FC } from 'react';
+import { RobotMessage } from './shared/RobotMessage';
+import 'prismjs/themes/prism-tomorrow.css';
+import Prism from 'prismjs';
+import { badSPrinciple, goodSPrinciple } from './utils/codeExamples';
 
-const S = () => {
+const S: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
-  const professions = ["официант", "повар", "уборщик", "хостес"];
+  const professions = ['официант', 'повар', 'уборщик', 'хостес'];
   const textForRobots = professions.map((el) => `Я ${el}`);
   return (
-    <div className="S">
+    <div className='S'>
       <h1>Принцип единственной ответственности</h1>
       <h1>Single Responsibility Principle - SRP</h1>
       <p>
@@ -22,48 +22,48 @@ const S = () => {
       </p>
       <q>
         <i>
-          Функция имеет едиственное назначение, если вы{" "}
+          Функция имеет едиственное назначение, если вы{' '}
           <strong>не можете</strong> осмысленно <strong>извлечь</strong> из нее
           другую функцию. Если вы можете извлечь другую функцию, то исходная
           функция делала больше, чем одно действие.
         </i>
       </q>
-      <div className="images">
+      <div className='images'>
         <RobotMessage
-          positionX="bottom"
-          positionY="right"
+          positionX='bottom'
+          positionY='right'
           text={textForRobots}
         />
-        <div className="images__group2x2">
+        <div className='images__group2x2'>
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
+            positionX='top'
+            positionY='left'
+            scale='small'
             text={textForRobots[0]}
           />
           <RobotMessage
-            positionX="top"
-            positionY="right"
-            scale="small"
+            positionX='top'
+            positionY='right'
+            scale='small'
             text={textForRobots[1]}
           />
           <RobotMessage
-            positionX="bottom"
-            positionY="left"
-            scale="small"
+            positionX='bottom'
+            positionY='left'
+            scale='small'
             text={textForRobots[2]}
           />
           <RobotMessage
-            positionX="bottom"
-            positionY="right"
-            scale="small"
+            positionX='bottom'
+            positionY='right'
+            scale='small'
             text={textForRobots[3]}
           />
         </div>
-        <div className="dot dot-red"></div>
-        <div className="dot dot-green"></div>
+        <div className='dot dot-red'></div>
+        <div className='dot dot-green'></div>
       </div>
-      <div className="examples">
+      <div className='examples'>
         <p>
           Примерr компонента, который нарушает принцип единой ответственности:
         </p>
