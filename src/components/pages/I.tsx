@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { RobotMessage } from './shared/RobotMessage';
+import { useEffect, FC } from 'react';
+import { RobotMessage } from '@/components/shared/RobotMessage';
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
-import { badIPrinciple, goodIPrinciple } from './utils/codeExamples';
+import { badIPrinciple, goodIPrinciple } from '@/components/utils/codeExamples';
 
-const I = () => {
+const I: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);

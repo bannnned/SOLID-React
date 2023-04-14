@@ -1,15 +1,15 @@
-import React, { useEffect, FC } from 'react';
-import { RobotMessage } from './shared/RobotMessage';
+import { useEffect, FC } from 'react';
+import { RobotMessage } from '@/components/shared/RobotMessage';
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
-import { badSPrinciple, goodSPrinciple } from './utils/codeExamples';
+import { badSPrinciple, goodSPrinciple } from '@/components/utils/codeExamples';
 
 const S: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
-  const professions = ['официант', 'повар', 'уборщик', 'хостес'];
-  const textForRobots = professions.map((el) => `Я ${el}`);
+  const professions: string[] = ['официант', 'повар', 'уборщик', 'хостес'];
+  const textForRobots = professions.map((el: string) => `Я ${el}`);
   return (
     <div className='S'>
       <h1>Принцип единственной ответственности</h1>

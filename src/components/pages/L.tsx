@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { RobotMessage } from "./shared/RobotMessage";
-import "prismjs/themes/prism-tomorrow.css";
-import Prism from "prismjs";
-import { badLPrinciple, goodLPrinciple } from "./utils/codeExamples";
+import { useEffect, FC } from 'react';
+import { RobotMessage } from '@/components/shared/RobotMessage';
+import 'prismjs/themes/prism-tomorrow.css';
+import Prism from 'prismjs';
+import { badLPrinciple, goodLPrinciple } from '@/components/utils/codeExamples';
 
-const L = () => {
+const L: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   return (
-    <div className="L">
-      {" "}
+    <div className='L'>
+      {' '}
       <h1>Принцип подстановки Барбары Лисков</h1>
       <h1>Liskov Substitution Principle - LSP</h1>
       <p>
@@ -20,49 +20,49 @@ const L = () => {
         использовать одинаковый API для упрощения замены одного компонента
         другим.
       </p>
-      <div className="images">
-        <div className="images__group3x1 padding-top-50">
+      <div className='images'>
+        <div className='images__group3x1 padding-top-50'>
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            text={"Я родитель и я могу готовить напитки"}
+            positionX='top'
+            positionY='left'
+            text={'Я родитель и я могу готовить напитки'}
           />
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Я ребенок1 и я могу готовить салаты"}
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Я ребенок1 и я могу готовить салаты'}
           />
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Я ребенок2 и я могу готовить десерты"}
-          />
-        </div>
-        <div className="images__group3x1 padding-top-50">
-          <RobotMessage
-            positionX="top"
-            positionY="left"
-            text={"Я родитель и я могу готовить напитки"}
-          />
-          <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Я ребенок1 и я могу готовить напитки и салаты"}
-          />
-          <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Я ребенок2 и я могу готовить напитки и десерты"}
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Я ребенок2 и я могу готовить десерты'}
           />
         </div>
-        <div className="dot dot-red"></div>
-        <div className="dot dot-green"></div>
+        <div className='images__group3x1 padding-top-50'>
+          <RobotMessage
+            positionX='top'
+            positionY='left'
+            text={'Я родитель и я могу готовить напитки'}
+          />
+          <RobotMessage
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Я ребенок1 и я могу готовить напитки и салаты'}
+          />
+          <RobotMessage
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Я ребенок2 и я могу готовить напитки и десерты'}
+          />
+        </div>
+        <div className='dot dot-red'></div>
+        <div className='dot dot-green'></div>
       </div>
-      <div className="examples">
+      <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
         <pre>
           <code className={`language-javascript`}>{badLPrinciple}</code>

@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 import './styles.scss';
 import { S, O, L, I, D } from '@/components';
 
+interface IComponents {
+  [key: string]: React.ReactNode;
+}
+
 export default function App() {
-  const principlesComponents = {
+  const principlesComponents: IComponents = {
     S: <S />,
     O: <O />,
     L: <L />,
@@ -12,12 +16,13 @@ export default function App() {
     D: <D />,
   };
   const keys = Object.keys(principlesComponents);
-  const [currentComponent, setCurrentComponent] = useState(
+  const [currentComponent, setCurrentComponent] = useState<React.ReactNode>(
     principlesComponents.D
   );
 
-  const handleButton = (e) => {
-    const value = e.target.value;
+  const handleButton = (event: React.MouseEvent<HTMLElement>) => {
+    const element = event.target as HTMLInputElement;
+    const value = element.value;
     setCurrentComponent(principlesComponents[value]);
   };
 
