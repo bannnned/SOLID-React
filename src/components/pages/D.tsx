@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { RobotMessage } from "./shared/RobotMessage";
-import "prismjs/themes/prism-tomorrow.css";
-import Prism from "prismjs";
-import { badDPrinciple, goodDPrinciple } from "./utils/codeExamples";
+import { useEffect, FC } from 'react';
+import { RobotMessage } from '@/components/shared/RobotMessage';
+import 'prismjs/themes/prism-tomorrow.css';
+import Prism from 'prismjs';
+import { badDPrinciple, goodDPrinciple } from '@/components/utils/codeExamples';
 
-const D = () => {
+const D: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   return (
-    <div className="D">
-      {" "}
+    <div className='D'>
+      {' '}
       <h1>Принцип инверсии зависимостей</h1>
       <h1>Dependency Inversion Principle</h1>
       <p>
@@ -18,21 +18,21 @@ const D = () => {
         означает, что компоненты должны зависеть от абстракций (интерфейсов)
         вместо конкретных реализаций.
       </p>
-      <div className="images">
+      <div className='images'>
         <RobotMessage
-          positionX="top"
-          positionY="left"
-          text={"Я могу резать пиццу ножом"}
+          positionX='top'
+          positionY='left'
+          text={'Я могу резать пиццу ножом'}
         />
         <RobotMessage
-          positionX="top"
-          positionY="left"
-          text={"Я могу резать пиццу тем, что дадут в руки"}
+          positionX='top'
+          positionY='left'
+          text={'Я могу резать пиццу тем, что дадут в руки'}
         />
-        <div className="dot dot-red"></div>
-        <div className="dot dot-green"></div>
+        <div className='dot dot-red'></div>
+        <div className='dot dot-green'></div>
       </div>
-      <div className="examples">
+      <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
         <pre>
           <code className={`language-javascript`}>{badDPrinciple}</code>

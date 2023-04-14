@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { RobotMessage } from "./shared/RobotMessage";
-import "prismjs/themes/prism-tomorrow.css";
-import Prism from "prismjs";
-import { badOPrinciple, goodOPrinciple } from "./utils/codeExamples";
+import { useEffect, FC } from 'react';
+import { RobotMessage } from '@/components/shared/RobotMessage';
+import 'prismjs/themes/prism-tomorrow.css';
+import Prism from 'prismjs';
+import { badOPrinciple, goodOPrinciple } from '@/components/utils/codeExamples';
 
-const O = () => {
+const O: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   return (
-    <div className="O">
-      {" "}
+    <div className='O'>
+      {' '}
       <h1>Принцип открытости/закрытости</h1>
       <h1>Open/Closed Principle - OCP</h1>
       <p>
@@ -20,46 +20,46 @@ const O = () => {
       </p>
       <q>
         <i>
-          Функция имеет едиственное назначение, если вы{" "}
+          Функция имеет едиственное назначение, если вы{' '}
           <strong>не можете</strong> осмысленно <strong>извлечь</strong> из нее
           другую функцию. Если вы можете извлечь другую функцию, то исходная
           функция делала больше, чем одно действие.
         </i>
       </q>
-      <div className="images">
-        <div className="images__group1x1">
+      <div className='images'>
+        <div className='images__group1x1'>
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Я могу добавлять"}
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Я могу добавлять'}
           />
           <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Теперь я могу удалять"}
-          />
-        </div>
-        <div className="images__group1x1">
-          {" "}
-          <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Я могу добавлять"}
-          />
-          <RobotMessage
-            positionX="top"
-            positionY="left"
-            scale="small"
-            text={"Теперь я могу добавлять и удалять"}
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Теперь я могу удалять'}
           />
         </div>
-        <div className="dot dot-red"></div>
-        <div className="dot dot-green"></div>
+        <div className='images__group1x1'>
+          {' '}
+          <RobotMessage
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Я могу добавлять'}
+          />
+          <RobotMessage
+            positionX='top'
+            positionY='left'
+            scale='small'
+            text={'Теперь я могу добавлять и удалять'}
+          />
+        </div>
+        <div className='dot dot-red'></div>
+        <div className='dot dot-green'></div>
       </div>
-      <div className="examples">
+      <div className='examples'>
         <p>
           Примерr компонента, который нарушает принцип открытости/закрытости:
         </p>
