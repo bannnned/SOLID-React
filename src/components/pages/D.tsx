@@ -1,23 +1,35 @@
 import { useEffect, FC } from 'react';
+
+// Components
 import { RobotMessage } from '@/components/shared/RobotMessage';
+import { HeaderText } from '@/components/shared/HeaderText';
+import { CodeBlock } from '@/components/shared/CodeBlock';
+
+// Libs
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
+
+// Utils
 import { badDPrinciple, goodDPrinciple } from '@/components/utils/codeExamples';
 
 const D: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
+
+  const headerText = {
+    title: {
+      h1: 'Принцип инверсии зависимостей',
+      h2: 'Dependency Inversion Principle',
+    },
+    description: ` Модули должны зависеть от абстракций, а не от конкретных реализаций. Это
+        означает, что компоненты должны зависеть от абстракций (интерфейсов)
+        вместо конкретных реализаций.`,
+    quote: `Модули верхнего уровня не должны зависеть от модулей нижнего уровня. Оба типа модулей должны зависеть от абстракций.`,
+  };
   return (
     <div className='D'>
-      {' '}
-      <h1>Принцип инверсии зависимостей</h1>
-      <h1>Dependency Inversion Principle</h1>
-      <p>
-        Модули должны зависеть от абстракций, а не от конкретных реализаций. Это
-        означает, что компоненты должны зависеть от абстракций (интерфейсов)
-        вместо конкретных реализаций.
-      </p>
+      <HeaderText text={headerText} />
       <div className='images'>
         <RobotMessage
           positionX='top'
@@ -34,9 +46,7 @@ const D: FC = () => {
       </div>
       <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
-        <pre>
-          <code className={`language-javascript`}>{badDPrinciple}</code>
-        </pre>
+        <CodeBlock text={badDPrinciple} lang={'js'} />
         <p>
           В этом примере компонент App жестко зависит от функции fetchData,
           которая определена в отдельном модуле. Если необходимо изменить
@@ -47,9 +57,7 @@ const D: FC = () => {
           Вот исправленный код компонента, который разделяет интерфейс на две
           отдельные части:
         </p>
-        <pre>
-          <code className={`language-javascript`}>{goodDPrinciple}</code>
-        </pre>
+        <CodeBlock text={goodDPrinciple} lang={'js'} />
         <p>
           В этом примере компонент App зависит только от абстракции useData,
           которая инкапсулирует логику получения данных. Реализация useData

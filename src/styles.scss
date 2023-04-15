@@ -3,7 +3,7 @@
   flex-direction: column;
   font-family: sans-serif;
   text-align: center;
-  margin: 40px 160px;
+  margin: 40px 20%;
 }
 
 .buton-group {
@@ -16,16 +16,21 @@
     width: 50px;
     height: 40px;
     border: none;
-    background-color: #FFDFD3;
+    background-color: #ffdfd3;
     border-radius: 8px;
     cursor: pointer;
     &:hover {
-      background-color: #F5D6CB
+      background-color: #f5d6cb;
     }
     &:active {
-      background-color: #DEC2B8
+      background-color: #dec2b8;
+    }
+    &:focus {
+      outline: 1px solid rgba(99, 93, 80, 0.5);
     }
   }
 }
 
-
+.active-button {
+  border: 2px solid rgba(99, 93, 80, 0.5);
+}

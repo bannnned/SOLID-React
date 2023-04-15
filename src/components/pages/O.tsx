@@ -1,31 +1,36 @@
 import { useEffect, FC } from 'react';
+
+// Components
 import { RobotMessage } from '@/components/shared/RobotMessage';
+import { HeaderText } from '@/components/shared/HeaderText';
+import { CodeBlock } from '@/components/shared/CodeBlock';
+
+// Libs
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
+
+// Utils
 import { badOPrinciple, goodOPrinciple } from '@/components/utils/codeExamples';
 
 const O: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
+
+  const headerText = {
+    title: {
+      h1: 'Принцип открытости/закрытости',
+      h2: 'Open/Closed Principle - OCP',
+    },
+    description: `Компоненты должны быть открыты для расширения, но закрыты для изменения.
+        Это означает, что вы должны быть в состоянии добавлять функциональность
+        к компонентам без изменения их исходного кода.`,
+    quote: `Софт должен быть <strong>открыт для расширения</strong>, но <strong>закрыт для модификации</strong>.
+     Другими словами, можно добавлять новые функции, но нельзя менять существующий код`,
+  };
   return (
     <div className='O'>
-      {' '}
-      <h1>Принцип открытости/закрытости</h1>
-      <h1>Open/Closed Principle - OCP</h1>
-      <p>
-        Компоненты должны быть открыты для расширения, но закрыты для изменения.
-        Это означает, что вы должны быть в состоянии добавлять функциональность
-        к компонентам без изменения их исходного кода.
-      </p>
-      <q>
-        <i>
-          Функция имеет едиственное назначение, если вы{' '}
-          <strong>не можете</strong> осмысленно <strong>извлечь</strong> из нее
-          другую функцию. Если вы можете извлечь другую функцию, то исходная
-          функция делала больше, чем одно действие.
-        </i>
-      </q>
+      <HeaderText text={headerText} />
       <div className='images'>
         <div className='images__group1x1'>
           <RobotMessage
@@ -63,9 +68,7 @@ const O: FC = () => {
         <p>
           Примерr компонента, который нарушает принцип открытости/закрытости:
         </p>
-        <pre>
-          <code className={`language-javascript`}>{badOPrinciple}</code>
-        </pre>
+        <CodeBlock text={badOPrinciple} lang={'js'} />
         <p>
           В этом примере компонент Shape имеет зависимость от конкретных
           подтипов (Circle, Rectangle, Triangle), и для каждого типа он
@@ -82,9 +85,7 @@ const O: FC = () => {
         <p>
           Компонент, который соблюдает 2й принцип SOLID может выглядеть так:
         </p>
-        <pre>
-          <code className={`language-javascript`}>{goodOPrinciple}</code>
-        </pre>
+        <CodeBlock text={goodOPrinciple} lang={'js'} />
         <p>
           В этом примере компонент Shape теперь принимает метод calculateArea в
           качестве свойства, который возвращает строку с информацией об области

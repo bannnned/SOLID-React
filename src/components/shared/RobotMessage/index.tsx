@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import robotIMG from '../../../assets/robot.png';
 import messageIMG from '../../../assets/message.png';
 
@@ -7,7 +7,7 @@ import './index.scss';
 interface IRobotMessage {
   positionX: string;
   positionY: string;
-  text: string | string[];
+  text: ReactNode | ReactNode[];
   scale?: string;
 }
 
@@ -30,8 +30,8 @@ const RobotMessage: React.FC<IRobotMessage> = ({
         />
         {Array.isArray(text) ? (
           <ul className='robot__message-text'>
-            {text.map((el) => {
-              return <li>{el}</li>;
+            {text.map((el, index) => {
+              return <li key={`${el}${index}`}>{el}</li>;
             })}
           </ul>
         ) : (

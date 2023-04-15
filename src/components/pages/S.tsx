@@ -1,7 +1,15 @@
 import { useEffect, FC } from 'react';
+
+// Components
 import { RobotMessage } from '@/components/shared/RobotMessage';
+import { HeaderText } from '@/components/shared/HeaderText';
+import { CodeBlock } from '@/components/shared/CodeBlock';
+
+// Libs
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
+
+// Utils
 import { badSPrinciple, goodSPrinciple } from '@/components/utils/codeExamples';
 
 const S: FC = () => {
@@ -9,31 +17,29 @@ const S: FC = () => {
     Prism.highlightAll();
   }, []);
   const professions: string[] = ['официант', 'повар', 'уборщик', 'хостес'];
-  const textForRobots = professions.map((el: string) => `Я ${el}`);
-  return (
-    <div className='S'>
-      <h1>Принцип единственной ответственности</h1>
-      <h1>Single Responsibility Principle - SRP</h1>
-      <p>
-        Каждый компонент должен иметь только одну ответственность. Это означает,
+  const textForRobots = professions.map((el: string) => (
+    <span key={el}>{`Я ${el}`}</span>
+  ));
+
+  const headerText = {
+    title: {
+      h1: 'Принцип единственной ответственности',
+      h2: 'Single Responsibility Principle - SRP',
+    },
+    description: `Каждый компонент должен иметь только одну ответственность. Это означает,
         что компонент должен быть ответственным только за одну вещь и не должен
         иметь больше одной причины для изменения. Это упрощает поддержку и
-        изменение компонента.
-      </p>
-      <q>
-        <i>
-          Функция имеет едиственное назначение, если вы{' '}
-          <strong>не можете</strong> осмысленно <strong>извлечь</strong> из нее
-          другую функцию. Если вы можете извлечь другую функцию, то исходная
-          функция делала больше, чем одно действие.
-        </i>
-      </q>
+        изменение компонента.`,
+    quote: `Функция имеет едиственное назначение, если вы
+            <strong>не можете</strong> осмысленно <strong>извлечь</strong> из
+            нее другую функцию. Если вы можете извлечь другую функцию, то
+            исходная функция делала больше, чем одно действие.`,
+  };
+  return (
+    <div className='S'>
+      <HeaderText text={headerText} />
       <div className='images'>
-        <RobotMessage
-          positionX='bottom'
-          positionY='right'
-          text={textForRobots}
-        />
+        <RobotMessage positionX='top' positionY='left' text={textForRobots} />
         <div className='images__group2x2'>
           <RobotMessage
             positionX='top'
@@ -67,9 +73,7 @@ const S: FC = () => {
         <p>
           Примерr компонента, который нарушает принцип единой ответственности:
         </p>
-        <pre>
-          <code className={`language-javascript`}>{badSPrinciple}</code>
-        </pre>
+        <CodeBlock text={badSPrinciple} lang={'js'} />
         <p>
           Этот компонент содержит логику управления списком задач (добавление,
           удаление) внутри компонента. Это нарушает принцип единственной
@@ -80,9 +84,7 @@ const S: FC = () => {
           задач и обработки пользовательского ввода.
         </p>
         <p>Компонент, который соблюдает принципы SOLID может выглядеть так:</p>
-        <pre>
-          <code className={`language-javascript`}>{goodSPrinciple}</code>
-        </pre>
+        <CodeBlock text={goodSPrinciple} lang={'js'} />
         <p>
           Здесь мы вынесли все дополнительные функции и оставили только
           необходимый функционал, который соответствует предназначению
