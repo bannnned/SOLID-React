@@ -11,6 +11,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "resolutions": {
+    "styled-components": "^5"
+  },
   "dependencies": {
     "loader-utils": "3.2.1",
     "prismjs": "1.29.0",
@@ -18,7 +21,8 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.61.0",
-    "scss": "0.2.4"
+    "scss": "0.2.4",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@types/prismjs": "^1.26.0",

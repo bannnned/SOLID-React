@@ -1,23 +1,35 @@
 import { useEffect, FC } from 'react';
+
+// Components
 import { RobotMessage } from '@/components/shared/RobotMessage';
+import { HeaderText } from '@/components/shared/HeaderText';
+import { CodeBlock } from '@/components/shared/CodeBlock';
+
+// Libs
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
+
+// Utils
 import { badIPrinciple, goodIPrinciple } from '@/components/utils/codeExamples';
 
 const I: FC = () => {
+  const headerText = {
+    title: {
+      h1: 'Принцип разделения интерфейса',
+      h2: 'Interface Segregation Principle - ISP',
+    },
+    description: `Клиенты не должны зависеть от интерфейсов, которые они не используют.
+        Это означает, что компоненты должны иметь только те методы, которые им
+        необходимы для выполнения своих функций.`,
+    quote: `Никакой клиент не должен быть вынужден зависеть от методов, которые он не использует. 
+    Или, другими словами, большие интерфейсы должны быть разбиты на маленькие интерфейсы.`,
+  };
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   return (
     <div className='I'>
-      {' '}
-      <h1>Принцип разделения интерфейса</h1>
-      <h1>Interface Segregation Principle - ISP</h1>
-      <p>
-        Клиенты не должны зависеть от интерфейсов, которые они не используют.
-        Это означает, что компоненты должны иметь только те методы, которые им
-        необходимы для выполнения своих функций.
-      </p>
+      <HeaderText text={headerText} />
       <div className='images'>
         <RobotMessage
           positionX='top'
@@ -26,19 +38,19 @@ const I: FC = () => {
         />
         <div className='images__group3x1 padding-top-50'>
           <RobotMessage
-            positionX='top'
+            positionX='bottom'
             positionY='left'
             text={'Я могу готовить еду и делаю это быстро'}
             scale='small'
           />
           <RobotMessage
-            positionX='top'
+            positionX='bottom'
             positionY='left'
             text={'Я могу мыть полы и делаю это быстро'}
             scale='small'
           />
           <RobotMessage
-            positionX='top'
+            positionX='bottom'
             positionY='left'
             text={'Я могу вскрывать замки и делаю это быстро'}
             scale='small'
@@ -49,9 +61,7 @@ const I: FC = () => {
       </div>
       <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
-        <pre>
-          <code className={`language-javascript`}>{badIPrinciple}</code>
-        </pre>
+        <CodeBlock text={badIPrinciple} lang={'js'} />
         <p>
           В этом компоненте интерфейс для клика на продукте и добавления в
           корзину объединены в одном компоненте. Это нарушает Принцип разделения
@@ -72,9 +82,7 @@ const I: FC = () => {
           Вот исправленный код компонента, который разделяет интерфейс на две
           отдельные части:
         </p>
-        <pre>
-          <code className={`language-javascript`}>{goodIPrinciple}</code>
-        </pre>
+        <CodeBlock text={goodIPrinciple} lang={'js'} />
         <p>
           Теперь мы используем компонент ProductImage для обработки клика на
           изображении продукта, а компонент AddToCartButton для добавления
