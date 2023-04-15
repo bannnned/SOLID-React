@@ -1,7 +1,7 @@
 import { useEffect, FC } from 'react';
 
 // Components
-import { RobotMessage } from '@/components/shared/RobotMessage';
+import { RobotsComposition } from '@/components/shared/RobotsComposition';
 import { HeaderText } from '@/components/shared/HeaderText';
 import { CodeBlock } from '@/components/shared/CodeBlock';
 
@@ -30,52 +30,58 @@ const L: FC = () => {
     quote: `Функции, которые используют базовый тип, должны иметь возможность 
     использовать любой подтип этого базового типа, не зная об этом`,
   };
+  const wrongSideComponents = {
+    grid: '3x1',
+    components: [
+      {
+        positionX: 'top',
+        positionY: 'left',
+        text: 'Я родитель и я могу готовить напитки',
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я ребенок1 и я могу готовить салаты',
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я ребенок2 и я могу готовить десерты',
+      },
+    ],
+  };
+  const rightSideComponents = {
+    grid: '3x1',
+    components: [
+      {
+        positionX: 'top',
+        positionY: 'left',
+        text: 'Я родитель и я могу готовить напитки',
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я ребенок1 и я могу готовить напитки и салаты',
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я ребенок2 и я могу готовить напитки и десерты',
+      },
+    ],
+  };
   return (
     <div className='L'>
       <HeaderText text={headerText} />
-      <div className='images-vertical'>
-        <div className='images__group3x1 padding-top-50'>
-          <RobotMessage
-            positionX='top'
-            positionY='left'
-            text={'Я родитель и я могу готовить напитки'}
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            scale='small'
-            text={'Я ребенок1 и я могу готовить салаты'}
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            scale='small'
-            text={'Я ребенок2 и я могу готовить десерты'}
-          />
-        </div>
-        <div className='dot dot-red'></div>
-        <div className='images__group3x1 padding-top-50'>
-          <RobotMessage
-            positionX='top'
-            positionY='left'
-            text={'Я родитель и я могу готовить напитки'}
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            scale='small'
-            text={'Я ребенок1 и я могу готовить напитки и салаты'}
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            scale='small'
-            text={'Я ребенок2 и я могу готовить напитки и десерты'}
-          />
-        </div>
-
-        <div className='dot dot-green'></div>
-      </div>
+      <RobotsComposition
+        wrongSideComponents={wrongSideComponents}
+        rightSideComponents={rightSideComponents}
+        vertical
+      />
       <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
         <CodeBlock text={badLPrinciple} lang={'js'} />

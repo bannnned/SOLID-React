@@ -1,9 +1,9 @@
 import { useEffect, FC } from 'react';
 
 // Components
-import { RobotMessage } from '@/components/shared/RobotMessage';
 import { HeaderText } from '@/components/shared/HeaderText';
 import { CodeBlock } from '@/components/shared/CodeBlock';
+import { RobotsComposition } from '@/components/shared/RobotsComposition';
 
 // Libs
 import 'prismjs/themes/prism-tomorrow.css';
@@ -13,6 +13,7 @@ import Prism from 'prismjs';
 import { badSPrinciple, goodSPrinciple } from '@/components/utils/codeExamples';
 
 const S: FC = () => {
+  // Инициализируем библиотеку для отображения кода
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -35,43 +36,48 @@ const S: FC = () => {
             нее другую функцию. Если вы можете извлечь другую функцию, то
             исходная функция делала больше, чем одно действие.`,
   };
+  const wrongSideComponents = {
+    components: [{ positionX: 'top', positionY: 'left', text: textForRobots }],
+  };
+  const rightSideComponents = {
+    grid: '2x2',
+    components: [
+      {
+        positionX: 'top',
+        positionY: 'left',
+        scale: 'small',
+        text: textForRobots[0],
+      },
+      {
+        positionX: 'top',
+        positionY: 'right',
+        scale: 'small',
+        text: textForRobots[1],
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: textForRobots[2],
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'right',
+        scale: 'small',
+        text: textForRobots[3],
+      },
+    ],
+  };
   return (
     <div className='S'>
       <HeaderText text={headerText} />
-      <div className='images'>
-        <RobotMessage positionX='top' positionY='left' text={textForRobots} />
-        <div className='images__group2x2'>
-          <RobotMessage
-            positionX='top'
-            positionY='left'
-            scale='small'
-            text={textForRobots[0]}
-          />
-          <RobotMessage
-            positionX='top'
-            positionY='right'
-            scale='small'
-            text={textForRobots[1]}
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            scale='small'
-            text={textForRobots[2]}
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='right'
-            scale='small'
-            text={textForRobots[3]}
-          />
-        </div>
-        <div className='dot dot-red'></div>
-        <div className='dot dot-green'></div>
-      </div>
+      <RobotsComposition
+        wrongSideComponents={wrongSideComponents}
+        rightSideComponents={rightSideComponents}
+      />
       <div className='examples'>
         <p>
-          Примерr компонента, который нарушает принцип единой ответственности:
+          Пример компонента, который нарушает принцип единой ответственности:
         </p>
         <CodeBlock text={badSPrinciple} lang={'js'} />
         <p>
