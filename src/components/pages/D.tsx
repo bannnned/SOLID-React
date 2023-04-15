@@ -1,7 +1,7 @@
 import { useEffect, FC } from 'react';
 
 // Components
-import { RobotMessage } from '@/components/shared/RobotMessage';
+import { RobotsComposition } from '@/components/shared/RobotsComposition';
 import { HeaderText } from '@/components/shared/HeaderText';
 import { CodeBlock } from '@/components/shared/CodeBlock';
 
@@ -27,23 +27,31 @@ const D: FC = () => {
         вместо конкретных реализаций.`,
     quote: `Модули верхнего уровня не должны зависеть от модулей нижнего уровня. Оба типа модулей должны зависеть от абстракций.`,
   };
+  const wrongSideComponents = {
+    components: [
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        text: 'Я могу резать пиццу ножом',
+      },
+    ],
+  };
+  const rightSideComponents = {
+    components: [
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        text: 'Я могу резать пиццу тем, что дадут в руки',
+      },
+    ],
+  };
   return (
     <div className='D'>
       <HeaderText text={headerText} />
-      <div className='images'>
-        <RobotMessage
-          positionX='top'
-          positionY='left'
-          text={'Я могу резать пиццу ножом'}
-        />
-        <RobotMessage
-          positionX='top'
-          positionY='left'
-          text={'Я могу резать пиццу тем, что дадут в руки'}
-        />
-        <div className='dot dot-red'></div>
-        <div className='dot dot-green'></div>
-      </div>
+      <RobotsComposition
+        wrongSideComponents={wrongSideComponents}
+        rightSideComponents={rightSideComponents}
+      />
       <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
         <CodeBlock text={badDPrinciple} lang={'js'} />

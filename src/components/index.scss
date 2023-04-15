@@ -1,43 +1,49 @@
+@mixin imagesGroup {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
 .images {
   display: grid;
   grid-template: auto 100px / 1fr 1fr;
-  gap: 60px;
+  align-items: center;
   justify-items: center;
+  gap: 60px;
   margin: 100px 0;
 
   &-vertical {
     display: grid;
     grid-template: auto auto / auto 100px;
     align-items: center;
-    gap: 60px 0;
+    gap: 180px 0;
     justify-items: center;
-    margin: 100px 0;
+    margin: 140px 0;
   }
 
   &__group4x4 {
-    display: grid;
+    @include imagesGroup;
     grid-template: repeat(4, 200px) / repeat(4, 200px);
-    justify-items: center;
   }
   &__group2x2 {
-    display: grid;
+    @include imagesGroup;
     grid-template: repeat(2, 200px) / repeat(2, 200px);
-    justify-items: center;
   }
   &__group1x1 {
-    display: grid;
+    @include imagesGroup;
     grid-template: 200px / 200px;
-    justify-items: center;
+  }
+  &__group1x2 {
+    @include imagesGroup;
+    grid-template: repeat(2, 200px) / 200px;
   }
   &__group3x1 {
-    display: grid;
+    @include imagesGroup;
     grid-template: 200px / repeat(3, 200px);
-    justify-items: center;
   }
   &__group2x1 {
-    display: grid;
+    @include imagesGroup;
     grid-template: 200px / repeat(2, 250px);
-    justify-items: center;
   }
 }
 

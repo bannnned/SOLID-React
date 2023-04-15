@@ -1,17 +1,22 @@
-import React, { FC, ReactNode } from 'react';
-import robotIMG from '../../../assets/robot.png';
-import messageIMG from '../../../assets/message.png';
+import { FC, IRobotMessage } from 'react';
 
+// Images
+import robotIMG from '@/assets/robot.png';
+import messageIMG from '@/assets/message.png';
+
+// Styles
 import './index.scss';
 
-interface IRobotMessage {
-  positionX: string;
-  positionY: string;
-  text: ReactNode | ReactNode[];
-  scale?: string;
-}
-
-const RobotMessage: React.FC<IRobotMessage> = ({
+/**
+ * Компонент @RobotMessage принимает в себя позиции по осям X и Y, текст и размер, возвращает
+ * компонент с картинкой робота и диалоговым окном с текстом, где может быть обычный текст
+ * или ненумерованный список. Диалоговое окно расположено сверху/снизу и справа/слева.
+ * @param positionX - позиция по оси X
+ * @param positionY - позиция по оси Y
+ * @param text - строка или массив со строками
+ * @param scale - строка с указанием размера
+ */
+const RobotMessage: FC<IRobotMessage> = ({
   positionX,
   positionY,
   text = '',
@@ -28,6 +33,8 @@ const RobotMessage: React.FC<IRobotMessage> = ({
           alt='message'
           className={`robot__message ${positionX}-${positionY}`}
         />
+        {/* Если text это массив, то бежим по нему и рендерим список, 
+        если строка, то рендерим его в параграфе */}
         {Array.isArray(text) ? (
           <ul className='robot__message-text'>
             {text.map((el, index) => {

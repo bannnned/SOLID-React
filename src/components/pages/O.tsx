@@ -1,9 +1,9 @@
 import { useEffect, FC } from 'react';
 
 // Components
-import { RobotMessage } from '@/components/shared/RobotMessage';
 import { HeaderText } from '@/components/shared/HeaderText';
 import { CodeBlock } from '@/components/shared/CodeBlock';
+import { RobotsComposition } from '@/components/shared/RobotsComposition';
 
 // Libs
 import 'prismjs/themes/prism-tomorrow.css';
@@ -28,42 +28,47 @@ const O: FC = () => {
     quote: `Софт должен быть <strong>открыт для расширения</strong>, но <strong>закрыт для модификации</strong>.
      Другими словами, можно добавлять новые функции, но нельзя менять существующий код`,
   };
+  const wrongSideComponents = {
+    grid: '1x2',
+    components: [
+      {
+        positionX: 'top',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я могу добавлять',
+      },
+      {
+        positionX: 'top',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Теперь я могу удалять',
+      },
+    ],
+  };
+  const rightSideComponents = {
+    grid: '1x2',
+    components: [
+      {
+        positionX: 'top',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я могу добавлять',
+      },
+      {
+        positionX: 'top',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Теперь я могу добавлять и удалять',
+      },
+    ],
+  };
   return (
     <div className='O'>
       <HeaderText text={headerText} />
-      <div className='images'>
-        <div className='images__group1x1'>
-          <RobotMessage
-            positionX='top'
-            positionY='left'
-            scale='small'
-            text={'Я могу добавлять'}
-          />
-          <RobotMessage
-            positionX='top'
-            positionY='left'
-            scale='small'
-            text={'Теперь я могу удалять'}
-          />
-        </div>
-        <div className='images__group1x1'>
-          {' '}
-          <RobotMessage
-            positionX='top'
-            positionY='left'
-            scale='small'
-            text={'Я могу добавлять'}
-          />
-          <RobotMessage
-            positionX='top'
-            positionY='left'
-            scale='small'
-            text={'Теперь я могу добавлять и удалять'}
-          />
-        </div>
-        <div className='dot dot-red'></div>
-        <div className='dot dot-green'></div>
-      </div>
+      <RobotsComposition
+        wrongSideComponents={wrongSideComponents}
+        rightSideComponents={rightSideComponents}
+      />
       <div className='examples'>
         <p>
           Примерr компонента, который нарушает принцип открытости/закрытости:

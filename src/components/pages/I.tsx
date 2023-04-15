@@ -1,7 +1,7 @@
 import { useEffect, FC } from 'react';
 
 // Components
-import { RobotMessage } from '@/components/shared/RobotMessage';
+import { RobotsComposition } from '@/components/shared/RobotsComposition';
 import { HeaderText } from '@/components/shared/HeaderText';
 import { CodeBlock } from '@/components/shared/CodeBlock';
 
@@ -27,38 +27,46 @@ const I: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
+  const wrongSideComponents = {
+    components: [
+      {
+        positionX: 'top',
+        positionY: 'left',
+        text: 'Я могу готовить еду, мыть полы, вскрывать замки, но медленно',
+      },
+    ],
+  };
+  const rightSideComponents = {
+    grid: '3x1',
+    components: [
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я могу готовить еду и делаю это быстро',
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я могу мыть полы и делаю это быстро',
+      },
+      {
+        positionX: 'bottom',
+        positionY: 'left',
+        scale: 'small',
+        text: 'Я могу вскрывать замки и делаю это быстро',
+      },
+    ],
+  };
   return (
     <div className='I'>
       <HeaderText text={headerText} />
-      <div className='images'>
-        <RobotMessage
-          positionX='top'
-          positionY='left'
-          text={'Я могу готовить еду, мыть полы, вскрывать замки, но медленно'}
-        />
-        <div className='images__group3x1 padding-top-50'>
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            text={'Я могу готовить еду и делаю это быстро'}
-            scale='small'
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            text={'Я могу мыть полы и делаю это быстро'}
-            scale='small'
-          />
-          <RobotMessage
-            positionX='bottom'
-            positionY='left'
-            text={'Я могу вскрывать замки и делаю это быстро'}
-            scale='small'
-          />
-        </div>
-        <div className='dot dot-red'></div>
-        <div className='dot dot-green'></div>
-      </div>
+      <RobotsComposition
+        wrongSideComponents={wrongSideComponents}
+        rightSideComponents={rightSideComponents}
+        vertical
+      />
       <div className='examples'>
         <p>Примерr компонента, который нарушает этот принцип:</p>
         <CodeBlock text={badIPrinciple} lang={'js'} />
