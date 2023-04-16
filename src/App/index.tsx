@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
-import './styles.scss';
+// Components
 import { S, O, L, I, D } from '@/components';
+
+// Styles
+import {
+  StyledButtonGroup,
+  StyledButtonComponent,
+  StyledAppWrapper,
+} from './styles';
 
 interface IComponents {
   [key: string]: React.ReactNode;
@@ -36,29 +43,26 @@ export default function App() {
     setCurrentComponent(newValue);
   };
 
-  const activeButtonClass = 'active-button';
-
   return (
-    <div className='App'>
+    <StyledAppWrapper className='App'>
       <h1>Solid principles in React</h1>
-      <div className='buton-group'>
+      <StyledButtonGroup className='button-group'>
         {keys.map((letter, index) => {
           const isActive = currentComponent.letter === letter;
           return (
-            <button
-              className={`buton-group__button ${
-                isActive ? activeButtonClass : ''
-              }`}
+            <StyledButtonComponent
+              isActive={isActive}
+              className={`button-group__button`}
               key={letter + index}
               onClick={handleButton}
               value={letter}
             >
               {letter}
-            </button>
+            </StyledButtonComponent>
           );
         })}
-      </div>
+      </StyledButtonGroup>
       {currentComponent.component}
-    </div>
+    </StyledAppWrapper>
   );
 }

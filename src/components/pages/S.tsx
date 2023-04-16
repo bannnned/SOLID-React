@@ -12,6 +12,9 @@ import Prism from 'prismjs';
 // Utils
 import { badSPrinciple, goodSPrinciple } from '@/components/utils/codeExamples';
 
+// Styles
+import { StyledParagraph } from './styles';
+
 const S: FC = () => {
   // Инициализируем библиотеку для отображения кода
   useEffect(() => {
@@ -37,32 +40,32 @@ const S: FC = () => {
             исходная функция делала больше, чем одно действие.`,
   };
   const wrongSideComponents = {
-    components: [{ positionX: 'top', positionY: 'left', text: textForRobots }],
+    components: [{ positionY: 'top', positionX: 'left', text: textForRobots }],
   };
   const rightSideComponents = {
     grid: '2x2',
     components: [
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         scale: 'small',
         text: textForRobots[0],
       },
       {
-        positionX: 'top',
-        positionY: 'right',
+        positionY: 'top',
+        positionX: 'right',
         scale: 'small',
         text: textForRobots[1],
       },
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: textForRobots[2],
       },
       {
-        positionX: 'bottom',
-        positionY: 'right',
+        positionY: 'bottom',
+        positionX: 'right',
         scale: 'small',
         text: textForRobots[3],
       },
@@ -76,11 +79,11 @@ const S: FC = () => {
         rightSideComponents={rightSideComponents}
       />
       <div className='examples'>
-        <p>
+        <StyledParagraph>
           Пример компонента, который нарушает принцип единой ответственности:
-        </p>
+        </StyledParagraph>
         <CodeBlock text={badSPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           Этот компонент содержит логику управления списком задач (добавление,
           удаление) внутри компонента. Это нарушает принцип единственной
           ответственности, так как компонент должен быть ответственным только за
@@ -88,14 +91,16 @@ const S: FC = () => {
           логику в отдельный компонент или модуль, который бы обрабатывал эти
           события, а компонент Todo использовал бы его только для отображения
           задач и обработки пользовательского ввода.
-        </p>
-        <p>Компонент, который соблюдает принципы SOLID может выглядеть так:</p>
+        </StyledParagraph>
+        <StyledParagraph>
+          Компонент, который соблюдает принципы SOLID может выглядеть так:
+        </StyledParagraph>
         <CodeBlock text={goodSPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           Здесь мы вынесли все дополнительные функции и оставили только
           необходимый функционал, который соответствует предназначению
           компонента
-        </p>
+        </StyledParagraph>
       </div>
     </div>
   );

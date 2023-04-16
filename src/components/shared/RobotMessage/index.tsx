@@ -5,7 +5,13 @@ import robotIMG from '@/assets/robot.png';
 import messageIMG from '@/assets/message.png';
 
 // Styles
-import './index.scss';
+import {
+  StyledRobot,
+  StyledRobotMessage,
+  StyledRobotMessageImage,
+  StyledRobotMessageTextUl,
+  StyledRobotMessageTextP,
+} from './styles';
 
 /**
  * Компонент @RobotMessage принимает в себя позиции по осям X и Y, текст и размер, возвращает
@@ -23,29 +29,35 @@ const RobotMessage: FC<IRobotMessage> = ({
   scale = 'normal',
 }: IRobotMessage) => {
   return (
-    <div className={`robot scale-${scale}`}>
-      <img src={robotIMG} alt='robot' className='robot__robot' />
-      <div
-        className={`robot__message-container container-${positionX}-${positionY}`}
+    <StyledRobot className={`robot`} scale={scale}>
+      <img src={robotIMG} alt='robot' className='robot__image' />
+      <StyledRobotMessage
+        className={`robot__message-container`}
+        positionX={positionX}
+        positionY={positionY}
       >
-        <img
+        <StyledRobotMessageImage
           src={messageIMG}
           alt='message'
-          className={`robot__message ${positionX}-${positionY}`}
+          className={`robot__message`}
+          positionX={positionX}
+          positionY={positionY}
         />
         {/* Если text это массив, то бежим по нему и рендерим список, 
         если строка, то рендерим его в параграфе */}
         {Array.isArray(text) ? (
-          <ul className='robot__message-text'>
+          <StyledRobotMessageTextUl className='robot__message-text'>
             {text.map((el, index) => {
               return <li key={`${el}${index}`}>{el}</li>;
             })}
-          </ul>
+          </StyledRobotMessageTextUl>
         ) : (
-          <p className='robot__message-text'>{text}</p>
+          <StyledRobotMessageTextP className='robot__message-text'>
+            {text}
+          </StyledRobotMessageTextP>
         )}
-      </div>
-    </div>
+      </StyledRobotMessage>
+    </StyledRobot>
   );
 };
 

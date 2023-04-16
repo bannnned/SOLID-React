@@ -12,6 +12,9 @@ import Prism from 'prismjs';
 // Utils
 import { badDPrinciple, goodDPrinciple } from '@/components/utils/codeExamples';
 
+// Styles
+import { StyledParagraph } from './styles';
+
 const D: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
@@ -30,8 +33,8 @@ const D: FC = () => {
   const wrongSideComponents = {
     components: [
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         text: 'Я могу резать пиццу ножом',
       },
     ],
@@ -39,8 +42,8 @@ const D: FC = () => {
   const rightSideComponents = {
     components: [
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         text: 'Я могу резать пиццу тем, что дадут в руки',
       },
     ],
@@ -53,25 +56,27 @@ const D: FC = () => {
         rightSideComponents={rightSideComponents}
       />
       <div className='examples'>
-        <p>Примерr компонента, который нарушает этот принцип:</p>
+        <StyledParagraph>
+          Примерr компонента, который нарушает этот принцип:
+        </StyledParagraph>
         <CodeBlock text={badDPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           В этом примере компонент App жестко зависит от функции fetchData,
           которая определена в отдельном модуле. Если необходимо изменить
           источник данных или использовать другой способ получения данных, то
           придется менять реализацию самого компонента.
-        </p>
-        <p>
+        </StyledParagraph>
+        <StyledParagraph>
           Вот исправленный код компонента, который разделяет интерфейс на две
           отдельные части:
-        </p>
+        </StyledParagraph>
         <CodeBlock text={goodDPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           В этом примере компонент App зависит только от абстракции useData,
           которая инкапсулирует логику получения данных. Реализация useData
           может быть изменена без влияния на компонент App, что соответствует
           принципу инверсии зависимостей.
-        </p>
+        </StyledParagraph>
       </div>
     </div>
   );
