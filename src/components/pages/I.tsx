@@ -12,6 +12,9 @@ import Prism from 'prismjs';
 // Utils
 import { badIPrinciple, goodIPrinciple } from '@/components/utils/codeExamples';
 
+// Styles
+import { StyledParagraph } from './styles';
+
 const I: FC = () => {
   const headerText = {
     title: {
@@ -30,8 +33,8 @@ const I: FC = () => {
   const wrongSideComponents = {
     components: [
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         text: 'Я могу готовить еду, мыть полы, вскрывать замки, но медленно',
       },
     ],
@@ -40,20 +43,20 @@ const I: FC = () => {
     grid: '3x1',
     components: [
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: 'Я могу готовить еду и делаю это быстро',
       },
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: 'Я могу мыть полы и делаю это быстро',
       },
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: 'Я могу вскрывать замки и делаю это быстро',
       },
@@ -68,9 +71,11 @@ const I: FC = () => {
         vertical
       />
       <div className='examples'>
-        <p>Примерr компонента, который нарушает этот принцип:</p>
+        <StyledParagraph>
+          Примерr компонента, который нарушает этот принцип:
+        </StyledParagraph>
         <CodeBlock text={badIPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           В этом компоненте интерфейс для клика на продукте и добавления в
           корзину объединены в одном компоненте. Это нарушает Принцип разделения
           интерфейса, так как пользовательский интерфейс для этих двух функций
@@ -85,19 +90,19 @@ const I: FC = () => {
           этого мы можем создать два отдельных компонента ProductImage и
           AddToCartButton, которые будут использоваться внутри компонента
           Product.
-        </p>
-        <p>
+        </StyledParagraph>
+        <StyledParagraph>
           Вот исправленный код компонента, который разделяет интерфейс на две
           отдельные части:
-        </p>
+        </StyledParagraph>
         <CodeBlock text={goodIPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           Теперь мы используем компонент ProductImage для обработки клика на
           изображении продукта, а компонент AddToCartButton для добавления
           продукта в корзину. Каждый компонент имеет свой собственный интерфейс,
           который можно изменять независимо от других компонентов, не нарушая
           при этом Принцип разделения интерфейса SOLID.
-        </p>
+        </StyledParagraph>
       </div>
     </div>
   );

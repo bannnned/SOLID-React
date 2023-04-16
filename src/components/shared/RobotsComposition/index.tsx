@@ -6,7 +6,12 @@ import greenCircleImg from '@/assets/green-circle.png';
 import { RobotMessage } from '@/components/shared/RobotMessage';
 
 // Styles
-import { StyledBackCircleImg } from './styles';
+import {
+  StyledBackCircleImg,
+  StyledImagesComposition,
+  StyledDot,
+  StyledGridWrapper,
+} from './styles';
 
 interface SideComponent {
   grid?: string;
@@ -48,9 +53,8 @@ const SideComponent = ({
   side,
   grid = '1x1',
 }: SideComponentProps) => {
-  console.log(side, grid);
   return (
-    <div className={`images__group${grid}`}>
+    <StyledGridWrapper className={`images__group`} grid={grid}>
       <StyledBackCircleImg
         src={backImages[side]}
         alt='red-circle'
@@ -67,7 +71,7 @@ const SideComponent = ({
           />
         );
       })}
-    </div>
+    </StyledGridWrapper>
   );
 };
 
@@ -84,21 +88,21 @@ const RobotsComposition: FC<IRobotsCompositionProps> = ({
   vertical = false,
 }: ISide) => {
   return (
-    <div className={`images${vertical ? '-vertical' : ''}`}>
+    <StyledImagesComposition className={`images`} vertical={vertical}>
       <SideComponent
         components={wrongSideComponents.components}
         grid={wrongSideComponents.grid}
         side='wrong'
       />
-      {vertical && <div className='dot dot-red'></div>}
+      {vertical && <StyledDot color='red' />}
       <SideComponent
         components={rightSideComponents.components}
         grid={rightSideComponents.grid}
         side='right'
       />
-      {!vertical && <div className='dot dot-red'></div>}
-      <div className='dot dot-green'></div>
-    </div>
+      {!vertical && <StyledDot color='red' />}
+      <StyledDot color='green' />
+    </StyledImagesComposition>
   );
 };
 

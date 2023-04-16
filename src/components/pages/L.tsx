@@ -12,6 +12,9 @@ import Prism from 'prismjs';
 // Utils
 import { badLPrinciple, goodLPrinciple } from '@/components/utils/codeExamples';
 
+// Styles
+import { StyledParagraph } from './styles';
+
 const L: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
@@ -34,19 +37,19 @@ const L: FC = () => {
     grid: '3x1',
     components: [
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         text: 'Я родитель и я могу готовить напитки',
       },
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: 'Я ребенок1 и я могу готовить салаты',
       },
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: 'Я ребенок2 и я могу готовить десерты',
       },
@@ -56,19 +59,19 @@ const L: FC = () => {
     grid: '3x1',
     components: [
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         text: 'Я родитель и я могу готовить напитки',
       },
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: 'Я ребенок1 и я могу готовить напитки и салаты',
       },
       {
-        positionX: 'bottom',
-        positionY: 'left',
+        positionY: 'bottom',
+        positionX: 'left',
         scale: 'small',
         text: 'Я ребенок2 и я могу готовить напитки и десерты',
       },
@@ -83,9 +86,11 @@ const L: FC = () => {
         vertical
       />
       <div className='examples'>
-        <p>Примерr компонента, который нарушает этот принцип:</p>
+        <StyledParagraph>
+          Примерr компонента, который нарушает этот принцип:
+        </StyledParagraph>
         <CodeBlock text={badLPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           В данном примере компоненты Square и Rectangle имеют разные свойства и
           реализации, что приводит к нарушению принципа подстановки Барбары
           Лисков. Оба компонента могут быть использованы в приложении, но не
@@ -93,18 +98,18 @@ const L: FC = () => {
           приложения. Для исправления нарушения принципа можно создать общий
           компонент Shape, который будет иметь общие свойства для всех фигур и
           наследоваться другими компонентами.
-        </p>
-        <p>
+        </StyledParagraph>
+        <StyledParagraph>
           Для исправления нарушения принципа подстановки Барбары Лисков можно
           создать общий компонент Shape, который будет иметь общие свойства для
           всех фигур и наследоваться другими компонентами:
-        </p>
+        </StyledParagraph>
         <CodeBlock text={goodLPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           Теперь оба компонента Square и Rectangle наследуют общий компонент
           Shape и могут быть заменяемы друг на друга без нарушения корректности
           работы приложения.
-        </p>
+        </StyledParagraph>
       </div>
     </div>
   );

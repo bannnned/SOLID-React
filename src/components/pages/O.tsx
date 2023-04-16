@@ -12,6 +12,9 @@ import Prism from 'prismjs';
 // Utils
 import { badOPrinciple, goodOPrinciple } from '@/components/utils/codeExamples';
 
+// Styles
+import { StyledParagraph } from './styles';
+
 const O: FC = () => {
   useEffect(() => {
     Prism.highlightAll();
@@ -32,14 +35,14 @@ const O: FC = () => {
     grid: '1x2',
     components: [
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         scale: 'small',
         text: 'Я могу добавлять',
       },
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         scale: 'small',
         text: 'Теперь я могу удалять',
       },
@@ -49,14 +52,14 @@ const O: FC = () => {
     grid: '1x2',
     components: [
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         scale: 'small',
         text: 'Я могу добавлять',
       },
       {
-        positionX: 'top',
-        positionY: 'left',
+        positionY: 'top',
+        positionX: 'left',
         scale: 'small',
         text: 'Теперь я могу добавлять и удалять',
       },
@@ -70,11 +73,11 @@ const O: FC = () => {
         rightSideComponents={rightSideComponents}
       />
       <div className='examples'>
-        <p>
-          Примерr компонента, который нарушает принцип открытости/закрытости:
-        </p>
+        <StyledParagraph>
+          Пример компонента, который нарушает принцип открытости/закрытости:
+        </StyledParagraph>
         <CodeBlock text={badOPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           В этом примере компонент Shape имеет зависимость от конкретных
           подтипов (Circle, Rectangle, Triangle), и для каждого типа он
           выполняет определенные расчеты внутри своей реализации. Это нарушает
@@ -86,12 +89,12 @@ const O: FC = () => {
           реализуют этот метод. Компонент Shape мог бы затем использовать этот
           интерфейс, не завися от конкретных подтипов фигур, и быть открытым для
           добавления новых подтипов фигур без изменения своей реализации.
-        </p>
-        <p>
+        </StyledParagraph>
+        <StyledParagraph>
           Компонент, который соблюдает 2й принцип SOLID может выглядеть так:
-        </p>
+        </StyledParagraph>
         <CodeBlock text={goodOPrinciple} lang={'js'} />
-        <p>
+        <StyledParagraph>
           В этом примере компонент Shape теперь принимает метод calculateArea в
           качестве свойства, который возвращает строку с информацией об области
           фигуры. Каждый подтип фигуры (Circle, Rectangle, Triangle) теперь
@@ -102,7 +105,7 @@ const O: FC = () => {
           типов фигур без изменения своей реализации. Кроме того, каждый подтип
           фигуры теперь реализует метод calculateArea, что делает его закрытым
           для изменений и открытым для расширения.
-        </p>
+        </StyledParagraph>
       </div>
     </div>
   );
