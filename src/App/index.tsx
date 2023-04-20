@@ -44,15 +44,14 @@ export default function App() {
   };
 
   return (
-    <StyledAppWrapper className='App'>
+    <StyledAppWrapper>
       <h1>Solid principles in React</h1>
-      <StyledButtonGroup className='button-group'>
+      <StyledButtonGroup>
         {keys.map((letter, index) => {
           const isActive = currentComponent.letter === letter;
           return (
             <StyledButtonComponent
               isActive={isActive}
-              className={`button-group__button`}
               key={letter + index}
               onClick={handleButton}
               value={letter}

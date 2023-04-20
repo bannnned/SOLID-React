@@ -72,13 +72,13 @@ const S: FC = () => {
     ],
   };
   return (
-    <div className='S'>
+    <div>
       <HeaderText text={headerText} />
       <RobotsComposition
         wrongSideComponents={wrongSideComponents}
         rightSideComponents={rightSideComponents}
       />
-      <div className='examples'>
+      <div>
         <StyledParagraph>
           Пример компонента, который нарушает принцип единой ответственности:
         </StyledParagraph>
