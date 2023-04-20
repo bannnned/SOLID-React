@@ -63,14 +63,14 @@ const I: FC = () => {
     ],
   };
   return (
-    <div className='I'>
+    <div>
       <HeaderText text={headerText} />
       <RobotsComposition
         wrongSideComponents={wrongSideComponents}
         rightSideComponents={rightSideComponents}
         vertical
       />
-      <div className='examples'>
+      <div>
         <StyledParagraph>
           Примерr компонента, который нарушает этот принцип:
         </StyledParagraph>

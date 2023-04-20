@@ -54,12 +54,8 @@ const SideComponent = ({
   grid = '1x1',
 }: SideComponentProps) => {
   return (
-    <StyledGridWrapper className={`images__group`} grid={grid}>
-      <StyledBackCircleImg
-        src={backImages[side]}
-        alt='red-circle'
-        className={`back-circle`}
-      />
+    <StyledGridWrapper grid={grid}>
+      <StyledBackCircleImg src={backImages[side]} alt='red-circle' />
       {components.map((component, index) => {
         return (
           <RobotMessage
@@ -88,7 +84,7 @@ const RobotsComposition: FC<IRobotsCompositionProps> = ({
   vertical = false,
 }: ISide) => {
   return (
-    <StyledImagesComposition className={`images`} vertical={vertical}>
+    <StyledImagesComposition vertical={vertical}>
       <SideComponent
         components={wrongSideComponents.components}
         grid={wrongSideComponents.grid}

@@ -29,32 +29,25 @@ const RobotMessage: FC<IRobotMessage> = ({
   scale = 'normal',
 }: IRobotMessage) => {
   return (
-    <StyledRobot className={`robot`} scale={scale}>
-      <img src={robotIMG} alt='robot' className='robot__image' />
-      <StyledRobotMessage
-        className={`robot__message-container`}
-        positionX={positionX}
-        positionY={positionY}
-      >
+    <StyledRobot scale={scale}>
+      <img src={robotIMG} alt='robot' />
+      <StyledRobotMessage positionX={positionX} positionY={positionY}>
         <StyledRobotMessageImage
           src={messageIMG}
           alt='message'
-          className={`robot__message`}
           positionX={positionX}
           positionY={positionY}
         />
         {/* Если text это массив, то бежим по нему и рендерим список, 
         если строка, то рендерим его в параграфе */}
         {Array.isArray(text) ? (
-          <StyledRobotMessageTextUl className='robot__message-text'>
+          <StyledRobotMessageTextUl>
             {text.map((el, index) => {
               return <li key={`${el}${index}`}>{el}</li>;
             })}
           </StyledRobotMessageTextUl>
         ) : (
-          <StyledRobotMessageTextP className='robot__message-text'>
-            {text}
-          </StyledRobotMessageTextP>
+          <StyledRobotMessageTextP>{text}</StyledRobotMessageTextP>
         )}
       </StyledRobotMessage>
     </StyledRobot>

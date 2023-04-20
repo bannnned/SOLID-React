@@ -66,13 +66,13 @@ const O: FC = () => {
     ],
   };
   return (
-    <div className='O'>
+    <div>
       <HeaderText text={headerText} />
       <RobotsComposition
         wrongSideComponents={wrongSideComponents}
         rightSideComponents={rightSideComponents}
       />
-      <div className='examples'>
+      <div>
         <StyledParagraph>
           Пример компонента, который нарушает принцип открытости/закрытости:
         </StyledParagraph>
