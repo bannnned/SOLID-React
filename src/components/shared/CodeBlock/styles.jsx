@@ -3,11 +3,11 @@ import styled from 'styled-components/macro';
 export const StyledButton = styled.button`
   background: none;
   position: absolute;
-  right: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.25);
-  width: 50px;
-  height: 40px;
+  right: ${(props) => props.theme.spacing.lg};
+  border: 1px solid ${(props) => props.theme.colors.blackTransparent25};
+  color: ${(props) => props.theme.colors.blackTransparent25};
+  width: ${(props) => props.theme.spacing.lg5};
+  height: ${(props) => props.theme.spacing.lg4};
   padding: 0;
 `;
 

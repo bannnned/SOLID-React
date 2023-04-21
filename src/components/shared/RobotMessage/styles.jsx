@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/macro';
 export const StyledRobot = styled.div`
   display: flex;
   justify-content: center;
-  width: 400px;
+  width: ${(props) => props.theme.spacing.lg4 * 10};
   position: relative;
   align-self: center;
   transform: ${(props) => {
@@ -20,7 +20,7 @@ export const StyledRobotMessage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px;
+  width: ${(props) => props.theme.spacing.lg5 * 4};
   height: auto;
   position: absolute;
   top: ${(props) => (props.positionY === 'top' ? '-80px' : 'auto')};
@@ -32,8 +32,8 @@ export const StyledRobotMessage = styled.div`
 export const StyledRobotMessageImage = styled.img`
   width: 100%;
   height: 100%;
-  margin-top: 20px;
-  margin-left: 0px;
+  margin-top: ${(props) => props.theme.spacing.lg2};
+  margin-left: 0;
   ${(props) => {
     const condition = (positionY, positionX) => {
       return `${positionY}-${positionX}`;
@@ -65,7 +65,7 @@ export const StyledRobotMessageImage = styled.img`
 export const StyledRobotMessageTextUl = styled.ul`
       text-align: center;
       width: 70%;
-      top: 40px;
+      top: ${(props) => props.theme.spacing.lg4};
       position: absolute;
       & li {
         text-align: start;
@@ -76,7 +76,7 @@ export const StyledRobotMessageTextUl = styled.ul`
 export const StyledRobotMessageTextP = styled.p`
       text-align: center;
       width: 70%;
-      top: 40px;
+      top: ${(props) => props.theme.spacing.lg4};
       position: absolute;
     }
 `;

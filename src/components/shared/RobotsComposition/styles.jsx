@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const StyledBackCircleImg = styled.img`
-  width: 350px;
+  width: ${(props) => props.theme.spacing.lg5 * 5};
   position: absolute;
   opacity: 0.25;
 `;
@@ -16,8 +16,8 @@ export const StyledImagesComposition = styled.div`
     props.vertical ? 'auto auto / auto 100px' : 'auto 100px / 1fr 1fr'};
   align-items: center;
   justify-items: center;
-  gap: ${(props) => (props.vertical ? '180px 0' : '60px')};
-  margin: ${(props) => (props.vertical ? '140px 0' : '100px 0')};
+  gap: ${(props) => (props.vertical ? props.lg5 * 3 + ' 0' : props.lg5)};
+  margin: ${(props) => (props.vertical ? props.lg5 * 3 + ' 0' : '100px 0')};
 `;
 
 export const StyledDot = styled.div`
