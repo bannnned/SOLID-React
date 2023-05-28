@@ -1,9 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
+import { numberToValue } from '@/helpers/helpers';
 
 export const StyledBackCircleImg = styled.img`
-  width: 350px;
+  width: ${(props) => {
+    return numberToValue(props.theme.spacing.lg5 * 5, 'px');
+  }};
   position: absolute;
-  opacity: 0.25;
+  opacity: 0.5;
 `;
 
 export const StyledCodeBlock = styled.pre`
@@ -13,11 +16,18 @@ export const StyledCodeBlock = styled.pre`
 export const StyledImagesComposition = styled.div`
   display: grid;
   grid-template: ${(props) =>
-    props.vertical ? 'auto auto / auto 100px' : 'auto 100px / 1fr 1fr'};
+    props.vertical ? 'auto 50px / auto 100px' : 'auto 50px / 1fr 1fr'};
   align-items: center;
   justify-items: center;
-  gap: ${(props) => (props.vertical ? '180px 0' : '60px')};
-  margin: ${(props) => (props.vertical ? '140px 0' : '100px 0')};
+  gap: ${(props) => {
+    return props.vertical
+      ? numberToValue(props.theme.spacing.lg5 * 3) + ' 0'
+      : numberToValue(props.theme.spacing.lg5 * 2);
+  }};
+  margin: ${(props) =>
+    props.vertical
+      ? numberToValue(props.theme.spacing.lg5 * 3) + ' 0'
+      : '100px 0'};
 `;
 
 export const StyledDot = styled.div`

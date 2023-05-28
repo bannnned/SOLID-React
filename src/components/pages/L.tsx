@@ -10,10 +10,10 @@ import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 
 // Utils
-import { badLPrinciple, goodLPrinciple } from '@/components/utils/codeExamples';
+import { badLPrinciple, goodLPrinciple } from '@/components/data/codeExamples';
 
 // Styles
-import { StyledParagraph } from './styles';
+import { StyledParagraph, StyledTextContent } from './styles';
 
 const L: FC = () => {
   useEffect(() => {
@@ -85,7 +85,7 @@ const L: FC = () => {
         rightSideComponents={rightSideComponents}
         vertical
       />
-      <div>
+      <StyledTextContent>
         <StyledParagraph>
           Примерr компонента, который нарушает этот принцип:
         </StyledParagraph>
@@ -110,7 +110,7 @@ const L: FC = () => {
           Shape и могут быть заменяемы друг на друга без нарушения корректности
           работы приложения.
         </StyledParagraph>
-      </div>
+      </StyledTextContent>
     </div>
   );
 };

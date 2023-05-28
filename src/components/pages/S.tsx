@@ -10,10 +10,10 @@ import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 
 // Utils
-import { badSPrinciple, goodSPrinciple } from '@/components/utils/codeExamples';
+import { badSPrinciple, goodSPrinciple } from '@/components/data/codeExamples';
 
 // Styles
-import { StyledParagraph } from './styles';
+import { StyledParagraph, StyledTextContent } from './styles';
 
 const S: FC = () => {
   // Инициализируем библиотеку для отображения кода
@@ -78,7 +78,7 @@ const S: FC = () => {
         wrongSideComponents={wrongSideComponents}
         rightSideComponents={rightSideComponents}
       />
-      <div>
+      <StyledTextContent>
         <StyledParagraph>
           Пример компонента, который нарушает принцип единой ответственности:
         </StyledParagraph>
@@ -101,7 +101,7 @@ const S: FC = () => {
           необходимый функционал, который соответствует предназначению
           компонента
         </StyledParagraph>
-      </div>
+      </StyledTextContent>
     </div>
   );
 };

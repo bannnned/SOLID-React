@@ -10,10 +10,10 @@ import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 
 // Utils
-import { badIPrinciple, goodIPrinciple } from '@/components/utils/codeExamples';
+import { badIPrinciple, goodIPrinciple } from '@/components/data/codeExamples';
 
 // Styles
-import { StyledParagraph } from './styles';
+import { StyledParagraph, StyledTextContent } from './styles';
 
 const I: FC = () => {
   const headerText = {
@@ -70,7 +70,7 @@ const I: FC = () => {
         rightSideComponents={rightSideComponents}
         vertical
       />
-      <div>
+      <StyledTextContent>
         <StyledParagraph>
           Примерr компонента, который нарушает этот принцип:
         </StyledParagraph>
@@ -103,7 +103,7 @@ const I: FC = () => {
           который можно изменять независимо от других компонентов, не нарушая
           при этом Принцип разделения интерфейса SOLID.
         </StyledParagraph>
-      </div>
+      </StyledTextContent>
     </div>
   );
 };
