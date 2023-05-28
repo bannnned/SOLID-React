@@ -10,10 +10,10 @@ import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 
 // Utils
-import { badDPrinciple, goodDPrinciple } from '@/components/utils/codeExamples';
+import { badDPrinciple, goodDPrinciple } from '@/components/data/codeExamples';
 
 // Styles
-import { StyledParagraph } from './styles';
+import { StyledParagraph, StyledTextContent } from './styles';
 
 const D: FC = () => {
   useEffect(() => {
@@ -55,7 +55,7 @@ const D: FC = () => {
         wrongSideComponents={wrongSideComponents}
         rightSideComponents={rightSideComponents}
       />
-      <div>
+      <StyledTextContent>
         <StyledParagraph>
           Примерr компонента, который нарушает этот принцип:
         </StyledParagraph>
@@ -77,7 +77,7 @@ const D: FC = () => {
           может быть изменена без влияния на компонент App, что соответствует
           принципу инверсии зависимостей.
         </StyledParagraph>
-      </div>
+      </StyledTextContent>
     </div>
   );
 };

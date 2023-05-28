@@ -4,7 +4,7 @@ export const StyledButtonGroup = styled.div`
   display: flex;
   justify-content: center;
   gap: 6px;
-  margin-bottom: 20px;
+  z-index: 1;
 `;
 
 export const StyledButtonComponent = styled.button`
@@ -28,9 +28,27 @@ export const StyledButtonComponent = styled.button`
 `;
 
 export const StyledAppWrapper = styled.div`
+  background-color: ${(props) => props.theme.colors.bg};
+`;
+
+export const StyledMainContent = styled.div`
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
   text-align: center;
-  margin: 40px 20%;
+  gap: 20px;
+  padding: 40px 20%;
+`;
+
+export const StyledThemeButton = styled.button`
+  position: absolute;
+  width: ${(props) => {
+    return props.theme.spacing.lg5;
+  }}
+   height: ${(props) => props.theme.spacing.lg4}
+`;
+
+export const StyledHeader = styled.h1`
+  font-size: ${(props) => props.theme.spacing.lg2};
+  color: ${(props) => props.theme.colors.text};
 `;

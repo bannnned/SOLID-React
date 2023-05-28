@@ -10,10 +10,10 @@ import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 
 // Utils
-import { badOPrinciple, goodOPrinciple } from '@/components/utils/codeExamples';
+import { badOPrinciple, goodOPrinciple } from '@/components/data/codeExamples';
 
 // Styles
-import { StyledParagraph } from './styles';
+import { StyledParagraph, StyledTextContent } from './styles';
 
 const O: FC = () => {
   useEffect(() => {
@@ -53,13 +53,13 @@ const O: FC = () => {
     components: [
       {
         positionY: 'top',
-        positionX: 'left',
+        positionX: 'right',
         scale: 'small',
         text: 'Я могу добавлять',
       },
       {
         positionY: 'top',
-        positionX: 'left',
+        positionX: 'right',
         scale: 'small',
         text: 'Теперь я могу добавлять и удалять',
       },
@@ -72,7 +72,7 @@ const O: FC = () => {
         wrongSideComponents={wrongSideComponents}
         rightSideComponents={rightSideComponents}
       />
-      <div>
+      <StyledTextContent>
         <StyledParagraph>
           Пример компонента, который нарушает принцип открытости/закрытости:
         </StyledParagraph>
@@ -106,7 +106,7 @@ const O: FC = () => {
           фигуры теперь реализует метод calculateArea, что делает его закрытым
           для изменений и открытым для расширения.
         </StyledParagraph>
-      </div>
+      </StyledTextContent>
     </div>
   );
 };
